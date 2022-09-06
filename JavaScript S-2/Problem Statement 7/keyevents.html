@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Key events</title>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script>
+
+   //write JS code to cpature the Key events here
+
+   document.addEventListener('keypress', (event) => {
+    var keyValue = event.key;
+    document.getElementById('keyPress').innerHTML +=(keyValue);
+  }, false);
+
+  document.addEventListener('keydown', (event) => {
+    var name = event.key;
+    var code = event.code;
+    document.getElementById('keyDown').innerHTML +=(name);
+  }, false);
+
+  document.addEventListener('keyup', (event) => {
+    var keyValue = event.key;
+    var codeValue = event.code;
+    document.getElementById('keyUp').innerHTML +=( keyValue);
+  }, false);
+
+  </script>
+  </head>
+  <body>
+    <div class="container">
+    <h2> Printing The Key board Events</h2>
+    <h4> Start pressing some keys!</h4>
+
+    <div id="keyUp"> onKeyDown : </div>
+    <div id="keyDown"> onKeyUp :</div>
+    <div id="keyPress"> onKeyPress :</div>
+    
+  </div>
+ 
+
+    
+  </body>
+</html>

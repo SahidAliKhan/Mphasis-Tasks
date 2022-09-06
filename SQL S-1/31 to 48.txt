@@ -1,0 +1,74 @@
+create table Suppliers( S# varchar2(5), SName varchar2(20), Status number, City varchar(20));
+create table Parts( P# varchar2(5), PName varchar2(20), Color varchar2(10), Weight float, City varchar(20));
+create table Projects( J# varchar2(5), JName varchar2(20), City varchar(20));
+create table Shipment( S# varchar2(5), P# varchar2(5), J# varchar2(5), QTY number);
+
+insert into Suppliers values('S1','Smith',20,'London');
+insert into Suppliers values('S2','Jones',10,'Paris');
+insert into Suppliers values('S3','Blake',30,'Paris');
+insert into Suppliers values('S4','Clark',20,'London');
+insert into Suppliers values('S5','Adams',30,'Athens');
+
+insert into Parts values('P1','Nut','Red',12.0,'London');
+insert into Parts values('P2','Bolt','Green',17.0,'Paris');
+insert into Parts values('P3','Screw','Blue',17.0,'Rome');
+insert into Parts values('P4','Screw','Red',14.0,'London');
+insert into Parts values('P5','Cam','Blue',12.0,'Paris');
+insert into Parts values('P6','Cog','Red',19.0,'London');
+
+insert into Projects values('J1','Montago','London');
+insert into Projects values('J2','Cat','Paris');
+insert into Projects values('J3','Box','London');
+insert into Projects values('J4','Montago','Rome');
+insert into Projects values('J5','Eagles','Athens');
+
+insert into Shipment values('S1','P1','J1',350);
+insert into Shipment values('S1','P3','J3',120);
+insert into Shipment values('S2','P1','J1',620);
+insert into Shipment values('S3','P2','J3',700);
+insert into Shipment values('S2','P2','J4',250);
+insert into Shipment values('S4','P3','J2',125);
+insert into Shipment values('S5','P4','J2',325);
+
+select * from Suppliers;
+select * from Parts;
+select * from Projects;
+select * from Shipment;
+
+select * from Projects where City = 'London';
+select S# from Shipment where J# = 'J1';
+select City,Color from Parts group by (City,Color);
+select s.S#, p.P#, j.J# from Suppliers s, Parts p, Projects j where s.City = p.City and p.City = j.City;
+select s.S#, p.P#, j.J# from Suppliers s, Parts p, Projects j where s.City != p.City and p.City != j.City;
+select distinct P# from Shipment where S# in (select S# from Suppliers where City = 'London');
+select S.City,J.City from Suppliers S, Projects J where S.City != J.City and (S#,J#) in (select S#,J# from Shipment);
+select distinct J# from Projects J where exists (select S# from Suppliers S where S.City != J.City and (J#,S#) in (select J#,S# from Shipment));
+select S.P#, K.P# from Shipment S, Parts K where K.P# != S.P# and (S#,K.P#) in (select S#,P# from Shipment) group by (S.P#,K.P#);
+select sum(QTY) as Total_QTY from Shipment where P# = 'P1' and S# = 'S1';
+select P#,J#,sum(QTY) as Total_QTY from Shipment group by (P#,J#);
+select P# from Shipment group by P# having avg(QTY)>320;
+select Jname from Projects where J# in (select J# from Shipment where S# = 'S1');
+select Color from Parts where P# in (select P# from Shipment where S# = 'S1');
+select J# from Projects where J# in (select J# from Shipment where S# = 'S1');
+select S# from Suppliers where S# in (select S# from Shipment where P# in (select P# from Shipment where S# in (select S# from Shipment where P# in (select P# from Shipment where P# in (select P# from Parts where Color ='Red')))));
+select S# from Suppliers where STATUS < (select STATUS from Suppliers where S# = 'S1');
+select J# from Projects where J# in (select J# from Shipment where P# not in (select P# from Parts where Color = 'Red') and S# in ( select S# from Suppliers where City = 'London'));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

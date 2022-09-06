@@ -1,0 +1,35 @@
+<html>
+ <head>
+<script type="text/javascript">
+    function zoomIn(){
+        var myImg = document.getElementById("s");
+        var currWidth = myImg.clientWidth;
+        if(currWidth == 500 && currheight==500){
+            alert("Maximum zoom-in level reached.");
+        } else{
+            myImg.style.width = (currWidth + 50) + "px";
+        } 
+    }
+    function zoomOut(){
+        var myImg = document.getElementById("s");
+        var currWidth = myImg.clientWidth;
+        if(currWidth == 50){
+            alert("Maximum zoom-out level reached.");
+        } else{
+            myImg.style.width = (currWidth - 50) + "px";
+        }
+    }
+    </script
+
+</script>
+</head>
+ <body>
+     <div>
+<div>
+<img id="s" src="1.jpg" onclick="zoomIn()" width="284" height="178">
+<img id="a" src="4.jpg" onclick="zoomOut()" width="284" height="178">
+<br><br>
+</div>
+</div>
+</body>
+</html>

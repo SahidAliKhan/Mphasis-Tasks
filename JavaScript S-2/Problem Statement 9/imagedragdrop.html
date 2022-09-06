@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+    <style>
+#div1 {
+  width: 800px;
+  height: 200px;
+  padding: 10px;
+  border: 1px solid #aaaaaa;
+}
+    </style>
+<script>
+
+//write JS code to  drag and drop images here
+function allowDrop(event) {
+  event.preventDefault();
+}
+
+function drag(event) {
+  event.dataTransfer.setData("text", event.target.id);
+}
+
+function drop(event) {
+  event.preventDefault();
+  var data = event.dataTransfer.getData("text");
+  event.target.appendChild(document.getElementById(data));
+}
+
+</script>
+</head>
+<body>
+    <h2>Drag & Drop Example using HTML5 & Java Script</h2>
+
+    <img id="drag1" src="1.jpg"  ondragstart="drag(event)" width="150" height="150">
+    <img id="drag2" src="2.jpg"  ondragstart="drag(event)" width="150" height="150">
+    <img id="drag3" src="3.jpg"  ondragstart="drag(event)" width="150" height="150">
+    <img id="drag3" src="4.jpg"  ondragstart="drag(event)" width="150" height="150">
+    
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+Drag Images here
+</div>
+
+
+
+</body>
+</html>

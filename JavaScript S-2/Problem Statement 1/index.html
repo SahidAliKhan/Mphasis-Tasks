@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Validating Form</title>
+    </head>
+    <body bgcolor="#d3d3d3">
+        <form name="myForm" onsubmit=" return validateForm()">
+            <h2>Registration From</h2>
+            Title:
+            <select id="Title">
+                <option value="1">Mr.</option>
+                <option value="2">Mrs.</option>
+                <option value="3">Ms.</option>
+                <option value="4">Miss</option>
+            </select>
+            First Name: <input type = "text" name="Fname">
+            <label id="Fnames" style="color:red; visibility: hidden;"></label>
+            Last Name: <input type="text" name="Lname">
+            <label id="Lnames" style="color:red; visibility: hidden;"></label>
+            <br><br>
+            Email: <br>
+            <input type="text" name="Email">
+            <label id="Emails" style="color:red; visibility: hidden;"></label>
+            <br><br>
+            Mobile: <br>
+            <input type="text" name="Mobile">
+            <label id="Mobiles" style="color:red; visibility: hidden;"></label>
+            <br><br>
+
+            Password:<input type="password" name="Password">
+            <label id="passwordlabel" style="color:red; visibility: hidden;"></label>
+
+            Password Confirmation: <input type="password" name="CPassword">
+            <label id="cpasswordlabel" style="color:red; visibility: hidden;"></label>
+            <br><br>
+
+            <input type="checkbox" name="terms" value="conditions"> Accept Terms & conditions
+            <br><br>
+            <input type="submit" name="forms" value="Submit">
+            <input type="reset" name="forms" value="Reset">
+        </form>
+        <script src="script.js"></script>
+    </body>
+</html>

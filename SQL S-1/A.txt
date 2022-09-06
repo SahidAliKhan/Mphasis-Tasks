@@ -1,0 +1,2 @@
+CUSTOMER(CustomerID, Customer_Name, Customer_address, Date_of_Transaction)  
+PRODUCT(Product_Name, Product_Brand,Product_Category, QTY, Date_of_Transaction, Sell Price)

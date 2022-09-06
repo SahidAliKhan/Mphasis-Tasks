@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div1{
+  background-color:cyan;
+  padding: 50px;
+  height: 40px;
+  width: 300px;
+}
+
+#div2{
+  background-color:gray;
+  width:300px;
+  height: 30px;
+}
+    </style>
+</head>
+<body>
+    <div id="div1">
+      Click Me!
+        <div id="div2">
+          No, Click Me!
+        </div>
+      </div>
+      <input type="reset" onclick="reset()">
+      <script>
+var div1 = document.querySelector("#div1");
+var div2 = document.querySelector("#div2");
+
+div1.addEventListener("click", function (event) {
+  
+  div1.style.backgroundColor = "white";
+},true);
+
+div2.addEventListener("click", function (event) {
+ 
+  div2.style.backgroundColor = "green";
+  
+},true);
+function reset(){
+    div1.style.backgroundColor = "cyan";
+    div2.style.backgroundColor = "gray";
+}
+      </script>
+</body>
+</html>

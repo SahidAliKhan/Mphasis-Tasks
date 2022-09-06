@@ -1,0 +1,81 @@
+create table EMP(
+EMPNO number, ENAME varchar2(30), JOB varchar2(20), MGR number, HIREDATE date,
+SALARY number, COMM number, DEPTNO number);
+
+create table DEPT(
+DEPTNO number, DNAME varchar2(20), LOC varchar2(30));
+
+desc EMP;
+desc DEPT;
+
+insert into EMP values(7369,'Smith','Clerk',7902,DATE '80-12-17',800,null,20);
+insert into EMP values(7499,'Allen','Salesman',7698,DATE '81-02-20',1600,300,30);
+insert into EMP values(7521,'Ward','Salesman',7698,DATE '81-02-22',1250,500,30);
+insert into EMP values(7566,'Jones','Manager',7839,DATE '81-04-02',2975,null,20);
+insert into EMP values(7654,'Martin','Salesman',7698,DATE '81-09-28',1250,1400,30);
+insert into EMP values(7698,'Blake','Manager',7839,DATE '81-05-01',2850,null,30);
+insert into EMP values(7782,'Clark','Manager',7839,DATE '81-06-09',2450,null,10);
+insert into EMP values(7788,'Scott','Analyst',7566,DATE '82-12-09',3000,null,20);
+insert into EMP values(7839,'King','President',null,DATE '81-11-17',5000,null,10);
+insert into EMP values(7844,'Turner','Salesman',7698,DATE '81-09-08',1500,0,30);
+insert into EMP values(7876,'Adams','Clerk',7788,DATE '83-01-12',1100,null,20);
+insert into EMP values(7900,'James','Clerk',7698,DATE '81-12-03',950,null,30);
+insert into EMP values(7902,'Ford','Analyst',7566,DATE '81-12-04',3000,null,20);
+insert into EMP values(7934,'Miller','Clerk',7782,DATE '82-01-23',1300,null,10);
+
+insert into DEPT values(10,'Accounting','New York');
+insert into DEPT values(20,'Research','Dallas');
+insert into DEPT values(30,'Sales','Chicago');
+insert into DEPT values(40,'Operations','Boston');
+
+select * from EMP;
+select * from DEPT;
+
+select ENAME from EMP where JOB = 'Analyst' or JOB = 'Salesman';
+select * from EMP where HIREDATE < '30-SEP-81';
+select ENAME from EMP where JOB != 'Manager';
+select ENAME from EMP where EMPNO in (7369,7521,7839,7934,7788);
+select ENAME from EMP where DEPTNO not in (30,40,10);
+select ENAME from EMP where HIREDATE between '30-JUN-81' and '31-DEC-81';
+select distinct JOB from EMP;
+select ENAME from EMP where COMM is null;
+select ENAME, JOB from EMP where MGR is null;
+select ENAME from EMP where DEPTNO is null;
+select ENAME from EMP where COMM is not null;
+select ENAME from EMP where ENAME like 'S%' or ENAME like '%S';
+select ENAME from EMP where ENAME like '_i%';
+select count(*) as No_of_Employees from EMP;
+select count(distinct JOB) as No_of_DESIGNATION from EMP;
+select sum(SALARY) as Total_Salary from EMP;
+select max(SALARY) as MAX_Salary, min(SALARY)as MIN_SALATY, avg(SALARY) as AVG_SALARY from EMP;
+select max(SALARY) as MAX_Salary from EMP where JOB = 'Salesman';
+
+select count(*) as NO_OF_EMPLOYEES, avg(SALARY) as AVG_Salary from EMP where DEPTNO = 20;
+select ENAME, SALARY, salary*.10 as PF from EMP;
+select ENAME from EMP where trunc(sysdate,'YEAR') - trunc( HIREDATE, 'YEAR') > 2;
+select * from EMP order by SALARY;
+select ENAME, HIREDATE from EMP order by HIREDATE desc;
+select ENAME, SALARY, salary*.10 as PF, salary*.50 as HRA, salary*.30 as DA, SALARY+salary*.10+salary*.50+salary*.30 as GROSS from EMP order by GROSS;
+select DEPTNO , count(*) as NO_OF_EMPLOYEES from EMP group by DEPTNO;
+select DEPTNO , SUM(SALARY) from EMP group by DEPTNO;
+select JOB, count(*) as NO_OF_EMP from EMP group by JOB order by NO_OF_EMP desc;
+select sum(SALARY) as TOTAL_SALARY, max(SALARY) as MAX_Salary, min(SALARY)as MIN_SALATY, avg(SALARY) as AVG_SALARY from EMP group by JOB;
+select sum(SALARY) as TOTAL_SALARY, max(SALARY) as MAX_Salary, min(SALARY)as MIN_SALATY, avg(SALARY) as AVG_SALARY from EMP where DEPTNO = 20;
+select avg(SALARY) as AVG_SALARY from EMP group by JOB having avg(SALARY) > 1000;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
