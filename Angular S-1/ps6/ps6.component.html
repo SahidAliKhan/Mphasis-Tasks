@@ -1,0 +1,10 @@
+<p>PS 6:</p>
+<h1>Employees</h1>
+<div *ngFor="let employee of employees">
+    <p class="class-text" *ngIf="employee.employee_age>50">
+      {{employee.employee_name}} ({{employee.employee_age}})
+    </p>
+    <p class="class-prime" *ngIf="employee.employee_age<50">
+        {{employee.employee_name}} ({{employee.employee_age}})
+      </p>
+</div>

@@ -1,0 +1,4 @@
+<!-- <h1>Hello From Parent </h1> -->
+<h1 >child to parent: {{result}}</h1>
+<app-child [message]="str" (notify)="getdata($event)"></app-child>
+<button (click)="gen()"> parent to child</button>

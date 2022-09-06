@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Autofocus Form</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+      <form method="post" action="/projects/1">
+
+        <fieldset id="create_new_account">
+          <legend>Create New Account</legend>
+          <ol>
+            <li>
+                <label for="name">First Name</label>
+                <br>
+                <input type="text" name="name" id="name" placeholder="'John'">
+            </li>
+                <li>
+                    <label for="name">Last Name</label>
+                    <br>
+                    <input type="text" name="name" id="name" placeholder="'Smith'">
+                </li>
+                <li>
+                <label for="email">Email</label>
+                <br>
+                <input type="email" name="email" id="email" placeholder="'user@example.com'">
+                </li>
+            <li>
+                <label for="password">Password</label>
+                <br>
+                <input type="password" name="password" id="password" value="" autocomplete="off" placeholder="'8-10 characters'">
+            </li>
+            <li>
+                <label for="password">Password Confirmation</label>
+                <br>
+                <input type="password" name="password" id="password" value="" autocomplete="off" placeholder="'Type your password again'">
+            </li>
+            <li>
+                <input type="submit" value="Sign Up">
+            </li>
+          </ol>
+         <fiedlset>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,11 @@
+<P>PS 9:</P>
+<h3>Even Numbers:</h3>
+<div *ngFor="let even of num">
+    <p class="class-text" *ngIf="(even%2)===0">
+        {{even}}
+    </p>
+    <p *ngIf="(even%2)!==0">
+        {{even}}
+    </p>
+
+</div>

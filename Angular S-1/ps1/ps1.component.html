@@ -1,0 +1,13 @@
+
+  <fieldset>
+    First Name:<input type="text" #user1> <br>
+    Last Name:<input type="text" #user2> <br>
+    Date of Joining:<input type="date" #user3> <br>
+    <button (click)="getVal(user1.value,user2.value,user3.value)">Submit</button>
+</fieldset>
+<br>
+<fieldset>
+  <h3>{{firstName}}</h3>
+  <h3>{{lastName}}</h3>
+  <h3>{{DOJ}}</h3>
+</fieldset>

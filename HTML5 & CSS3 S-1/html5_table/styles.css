@@ -1,0 +1,26 @@
+table{
+    border-collapse: collapse;
+    width: 600px;
+}
+th td{
+    border: none;
+}
+th{
+    background-color: black;
+    color: white;
+}
+tr:nth-of-type(even){
+    background-color: lightblue;
+}
+tr:nth-of-type(odd){
+    background-color: lightpink;
+}
+tr:last-child{
+    font-weight: bolder;
+}
+td:last-child{
+    font-weight: bolder;
+}
+tr:last-child td:last-child {
+    font-size: 24px;
+}
